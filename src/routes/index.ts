@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import { User } from '../model'
-import { onCreateUser } from '../controller/user'
+import { onCreateUser, loginUser } from '../controller/user'
 const router = express.Router();
 
 router.get('/', async (req: Request, res: Response) => {
@@ -12,7 +12,7 @@ router.get('/', async (req: Request, res: Response) => {
 
 
 router.post('/signup', onCreateUser)
-
+router.post('/signin', loginUser)
 
 
 export default router;

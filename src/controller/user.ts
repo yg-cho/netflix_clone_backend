@@ -18,6 +18,22 @@ const onCreateUser = async (req: Request, res: Response) => {
     }
 }
 
+const loginUser = async ( req: Request, res: Response) => {
+    try {
+        // console.log("",req.body)
+        await User.loginUser(req.body);
+        // console.log(res)
+        // console.log(res.data)
+        return
+
+    } catch (err: any){
+        // console.log(err);
+        return res.status(400).json({
+            success: false,
+            error: err.message
+        })
+    }
+}
 // const onSignIn = async (req: Request, res: Response) => {
 //     try{
 //         console.log(req.body);
@@ -25,4 +41,4 @@ const onCreateUser = async (req: Request, res: Response) => {
 //     }
 // }
 
-export { onCreateUser }
+export { onCreateUser, loginUser }
